@@ -17,3 +17,11 @@
     `ffmpeg -i prod_pension_demo.mp4 -vf "setpts=0.5*PTS,fps=10,scale=640:-1:force_original_aspect_ratio=decrease,palettegen" palette.png`
   - Create GIF with speed:  
     `ffmpeg -i prod_pension_demo.mp4 -i palette.png -lavfi "setpts=0.5*PTS,fps=10,scale=640:-1:force_original_aspect_ratio=decrease[x]; [x][1:v] paletteuse" prod_pension_demo.gif`
+
+```
+Pallet
+ffmpeg -i input.mp4 -vf "setpts=0.0556*PTS,fps=10,scale=640:-1:force_original_aspect_ratio=decrease,palettegen" palette.png
+
+GIF
+ffmpeg -i input.mp4 -i palette.png -lavfi "setpts=0.0556*PTS,fps=10,scale=640:-1:force_original_aspect_ratio=decrease[x]; [x][1:v] paletteuse" prod_pension_demo.gif
+```
